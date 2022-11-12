@@ -45,6 +45,14 @@ label {
             width: 23%;
         }
     }
+
+    &.group--five {
+        width: 100%;
+
+        .form-group {
+            width: 19%;
+        }
+    }
 }
 
 // .form-control {

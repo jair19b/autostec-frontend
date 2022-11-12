@@ -66,10 +66,10 @@
         </div>
     </form>
 
-    <h2>Registrar un vehiculo</h2>
+    <h2 class="title-two">Registrar un vehiculo</h2>
 
     <form autocomplete="off" [formGroup]="formVehiculo" class="form-container">
-        <div class="form-content-grup group--four">
+        <div class="form-content-group group--five">
             <div class="form-group">
                 <label for="carPlaca">Placa:</label>
                 <input type="text" class="form-control" id="carPlaca" placeholder="XYZ123" formControlName="placa" />
@@ -89,6 +89,20 @@
                 <label for="carType">Tipo Vehiculo:</label>
                 <input type="text" class="form-control" id="carType" placeholder="Tipo" formControlName="placa" />
             </div>
+            <div class="form-group">
+                <label for="carMarca">Marca:</label>
+                <input type="text" class="form-control" id="carMarca" placeholder="Marca del vehiculo" formControlName="marca" />
+            </div>
+            <div class="form-group">
+                <label for="carYear">Año:</label>
+                <input type="text" class="form-control" id="carYear" placeholder="Marca del vehiculo" formControlName="anio" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="carDescrip">Descripción:</label>
+            <textarea class="form-control" id="carDescrip" placeholder="Marca del vehiculo" formControlName="descripcion">
+Agrega una descripcion de minimo 20 palabras</textarea
+            >
         </div>
     </form>
 </div>
