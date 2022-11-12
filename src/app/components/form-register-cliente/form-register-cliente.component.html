@@ -1,6 +1,14 @@
 <div class="container">
-    <h1 class="title">Registro de usuario</h1>
-    <form class="form-container" autocomplete="off" [formGroup]="formRegister">
+    <h1 class="title"><span class="bi bi-person-fill"></span> Registrar un Cliente</h1>
+    <div *ngIf="errorMessage.length > 0" class="text-danger my-4 text-center">{{ errorMessage }}</div>
+    <form class="form-container" [formGroup]="formRegister">
+        <div class="form-group">
+            <label>Sede:</label>
+            <select class="form-select" formControlName="sedeId">
+                <option value="">Seleccona la sede a la que perteneces</option>
+                <option *ngFor="let sede of sedes" value="{{ sede.id }}">{{ sede.nombre }}</option>
+            </select>
+        </div>
         <div class="form-group">
             <label for="userName">Nombres:</label>
             <input type="text" class="form-control" id="userName" placeholder="Ingrese su nombre" formControlName="nombres" />
@@ -53,6 +61,7 @@
                 <label>Ciudad:</label>
                 <select class="form-select" formControlName="ciudadResidencia">
                     <option value="" selected>Seleccione una ciudad</option>
+                    <option value="Cali" selected>Cali</option>
                 </select>
             </div>
             <div class="form-group">
@@ -64,45 +73,9 @@
                 <input type="date" class="form-control" id="userBirthday" formControlName="fechaNacimiento" />
             </div>
         </div>
-    </form>
-
-    <h2 class="title-two">Registrar un vehiculo</h2>
-
-    <form autocomplete="off" [formGroup]="formVehiculo" class="form-container">
-        <div class="form-content-group group--five">
-            <div class="form-group">
-                <label for="carPlaca">Placa:</label>
-                <input type="text" class="form-control" id="carPlaca" placeholder="XYZ123" formControlName="placa" />
-            </div>
-            <div class="form-group">
-                <label>Tipo de vehiculo:</label>
-                <select class="form-select">
-                    <option value="Automovil">Automovil</option>
-                    <option value="Bus">Bus</option>
-                    <option value="Camioneta">Camioneta</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="carType">Tipo Vehiculo:</label>
-                <input type="text" class="form-control" id="carType" placeholder="Tipo" formControlName="placa" />
-            </div>
-            <div class="form-group">
-                <label for="carMarca">Marca:</label>
-                <input type="text" class="form-control" id="carMarca" placeholder="Marca del vehiculo" formControlName="marca" />
-            </div>
-            <div class="form-group">
-                <label for="carYear">Año:</label>
-                <input type="text" class="form-control" id="carYear" placeholder="Marca del vehiculo" formControlName="anio" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="carDescrip">Descripción:</label>
-            <textarea class="form-control" id="carDescrip" placeholder="Marca del vehiculo" formControlName="descripcion">
-Agrega una descripcion de minimo 20 palabras</textarea
-            >
-        </div>
+        <button class="btn btn-primary" (click)="registrarUsuario()">
+            <span class="bi bi-pencil-fill"></span>
+            Registrar Usuario
+        </button>
     </form>
 </div>

@@ -1,0 +1,17 @@
+.container-centered {
+    width: 100%;
+    height: calc(100vh - 3.75rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.tarjeta span {
+    display: inline;
+    font-size: 4rem;
+    text-align: center;
+}

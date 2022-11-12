@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { FormRegisterClienteComponent } from "./components/form-register-cliente/form-register-cliente.component";
 import { HomeComponent } from "./components/home/home.component";
+import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 
 const routes: Routes = [
     {
@@ -10,8 +11,12 @@ const routes: Routes = [
         pathMatch: "full"
     },
     {
-        path: "registrar",
+        path: "registrar-cliente",
         component: FormRegisterClienteComponent
+    },
+    {
+        path: "registrar-vehiculo",
+        component: FormRegisterVehiculoComponent
     },
     {
         path: "**",
