@@ -11,12 +11,16 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LayoutModule } from "./layout/layout.module";
+import { FormRegisterClienteComponent } from "./components/form-register-cliente/form-register-cliente.component";
+import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
+import { HomeComponent } from "./components/home/home.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 registerLocaleData(es);
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, LayoutModule],
+    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, LayoutModule, ReactiveFormsModule],
     providers: [{ provide: NZ_I18N, useValue: es_ES }],
     bootstrap: [AppComponent]
 })

@@ -1,0 +1,94 @@
+<div class="container">
+    <h1 class="title">Registro de usuario</h1>
+    <form class="form-container" autocomplete="off" [formGroup]="formRegister">
+        <div class="form-group">
+            <label for="userName">Nombres:</label>
+            <input type="text" class="form-control" id="userName" placeholder="Ingrese su nombre" formControlName="nombres" />
+        </div>
+        <div class="form-group">
+            <label for="userLastName">Apellidos:</label>
+            <input type="text" class="form-control" id="userLastName" placeholder="Ingrese sus apellidos" formControlName="apellidos" />
+        </div>
+        <div class="form-group">
+            <label for="userEmail">Correo Electrónico:</label>
+            <input type="email" class="form-control" id="userEmail" placeholder="Dirección de correo electrónico" formControlName="correo" />
+        </div>
+        <div class="form-group">
+            <label for="userPassword">Contraseña:</label>
+            <input
+                type="password"
+                class="form-control"
+                id="userPassword"
+                placeholder="Cree una clave de acceso"
+                formControlName="contraseina" />
+        </div>
+        <div class="form-group">
+            <label for="userAddress">Dirección:</label>
+            <input type="text" class="form-control" id="userAddress" placeholder="Dirección" formControlName="direccion" />
+        </div>
+        <div class="form-content-group group--two">
+            <div class="form-group">
+                <label>Tipo de Identificación:</label>
+                <select class="form-select">
+                    <option value="CC">Cédula Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="PS">Pasaporte</option>
+                    <option value="CE">Cédula Extranjería</option>
+                    <option value="PEP">Permiso Especial de Permanencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userDNI">Número de identificación:</label>
+                <input type="text" class="form-control" id="userDNI" placeholder="Ingrese DNI" formControlName="cedula" />
+            </div>
+        </div>
+        <div class="form-content-group group--four">
+            <div class="form-group">
+                <label>Departamento:</label>
+                <select class="form-select">
+                    <option value="" selected>Seleccione un departamento</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ciudad:</label>
+                <select class="form-select" formControlName="ciudadResidencia">
+                    <option value="" selected>Seleccione una ciudad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userPhone">Teléfono:</label>
+                <input type="tel" class="form-control" id="userPhone" placeholder="Ingrese su nuemro de teléfono" formControlName="telefono" />
+            </div>
+            <div class="form-group">
+                <label for="userBirthday">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" id="userBirthday" formControlName="fechaNacimiento" />
+            </div>
+        </div>
+    </form>
+
+    <h2>Registrar un vehiculo</h2>
+
+    <form autocomplete="off" [formGroup]="formVehiculo" class="form-container">
+        <div class="form-content-grup group--four">
+            <div class="form-group">
+                <label for="carPlaca">Placa:</label>
+                <input type="text" class="form-control" id="carPlaca" placeholder="XYZ123" formControlName="placa" />
+            </div>
+            <div class="form-group">
+                <label>Tipo de vehiculo:</label>
+                <select class="form-select">
+                    <option value="Automovil">Automovil</option>
+                    <option value="Bus">Bus</option>
+                    <option value="Camioneta">Camioneta</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="carType">Tipo Vehiculo:</label>
+                <input type="text" class="form-control" id="carType" placeholder="Tipo" formControlName="placa" />
+            </div>
+        </div>
+    </form>
+</div>
