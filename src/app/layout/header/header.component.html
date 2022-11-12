@@ -2,7 +2,7 @@
     <div class="container header--content">
         <!-- logo -->
         <div class="header__brand">
-            <strong>AutosTec</strong>
+            <strong routerLink="">AutosTec</strong>
             <small>Mecanico</small>
         </div>
 
@@ -43,7 +43,7 @@
                 <nz-dropdown-menu #vehiculos="nzDropdownMenu">
                     <ul nz-menu>
                         <li class="dropdown__item-title">Acciones para Vehiculos</li>
-                        <li nz-menu-item class="dropdown__item">
+                        <li routerLink="busqueda-detallada" nz-menu-item class="dropdown__item">
                             <i class="bi bi-car-front-fill"></i>
                             <span>Consultar</span>
                         </li>
