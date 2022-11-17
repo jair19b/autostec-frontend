@@ -1,0 +1,81 @@
+.title {
+    text-align: center;
+    margin: 3rem auto;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > .form-group {
+        width: 48%;
+    }
+}
+
+.form-group {
+    position: relative;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+.form-content-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    &.group--two {
+        width: 48%;
+
+        .form-group {
+            width: 48%;
+        }
+    }
+
+    &.group--three {
+        width: 100%;
+
+        .form-group {
+            width: 32%;
+        }
+    }
+
+    &.group--four {
+        width: 100%;
+
+        .form-group {
+            width: 23%;
+        }
+    }
+
+    &.group--five {
+        width: 100%;
+
+        .form-group {
+            width: 19%;
+        }
+    }
+}
+
+// .form-control {
+//     display: block;
+//     width: 100%;
+//     background-color: #fff;
+//     color: #000;
+//     border: 1px solid #a8a8a8;
+//     border-radius: 0.25rem;
+//     padding: 0.5rem 0.75rem;
+//     line-height: normal;
+//     text-align: left;
+//     outline: none;
+//     transition: all 0.2s ease-in;
+//     &:focus {
+//         box-shadow: 0 0 1px 3px rgba(12, 102, 237, 0.5);
+//     }
+// }
