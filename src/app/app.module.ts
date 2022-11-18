@@ -17,11 +17,13 @@ import { HomeComponent } from "./components/home/home.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzTableModule } from "ng-zorro-antd/table";
+import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
+
 
 registerLocaleData(es);
 
 @NgModule({
-    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent],
+    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent, MecanicosComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -32,7 +34,8 @@ registerLocaleData(es);
         ReactiveFormsModule,
         NzInputModule,
         NzTableModule,
-        NzFormModule
+        NzFormModule,
+        ReactiveFormsModule
     ],
     providers: [{ provide: NZ_I18N, useValue: es_ES }],
     bootstrap: [AppComponent]

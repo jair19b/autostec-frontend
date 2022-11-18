@@ -1,0 +1,103 @@
+<div>
+  <h1 class="title"><span class="bi bi-car-front-fill"></span> Registrar un mecánico</h1>
+</div>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="correo">E-mail</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese un correo válido">
+      <input nz-input formControlName="correo" id="correo" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Contraseña</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingresa una contraseña válida">
+      <input
+        nz-input
+        type="password"
+        id="contraseina"
+        formControlName="contraseina"
+        (ngModelChange)="updateConfirmValidator()"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirmar contraseña </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+      <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+      <ng-template #errorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Por favor confirma tu contraseña</ng-container>
+        <ng-container *ngIf="control.hasError('confirm')">
+          Las contraseñas que ingresaste no coinciden
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item> -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nombres">Nombres</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese los nombres del empleado">
+      <input nz-input formControlName="nombres" id="nombres" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="apellidos">Apellidos</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese los apellidos del empleado">
+      <input nz-input formControlName="apellidos" id="apellidos" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="telefono">Telefono</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el telefono del empleado">
+      <input nz-input formControlName="telefono" id="telefono" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="cedula">Número de identificación</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el numero de identificacion">
+      <input nz-input formControlName="cedula" id="cedula" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="rol">Rol</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el rol del empleado">
+      <input nz-input formControlName="rol" id="rol" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha de nacimiento</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+        <input type="date">
+        <nz-date-picker formControlName="fechaNacimiento"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nivelEstudios">Nivel de estudios</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el nivel de estudios">
+        <input nz-input formControlName="nivelEstudios" id="nivelEstudios" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="direccion">direccion de residencia </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese la direccion de residencia del empleado">
+        <input nz-input formControlName="direccion" id="direccion" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="ciudadResidencia">Ciudad</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese la ciudad de residencia del empleado">
+        <input nz-input formControlName="ciudadResidencia" id="ciudadResidencia" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="sedeId">Id de sede</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Ingrese el id de la sede asignada">
+        <input nz-input formControlName="sedeId" id="sedeId" />
+      </nz-form-control>
+    </nz-form-item>
+  <p>{{registrar}}</p>
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button (click)="registerMec()" nzType="primary">Registrar mecanico</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
