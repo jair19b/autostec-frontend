@@ -6,9 +6,8 @@ import { Observable } from "rxjs";
     providedIn: "root"
 })
 export class CrudServiciosService {
-url = "http://[::1]:3000/";
+    url = "http://[::1]:3000/";
 
-   
     constructor(private http: HttpClient) {}
 
     obtenerDatos(url: string, filtro?: string, tipoFiltro: string = "documento"): Observable<any> {
@@ -34,8 +33,12 @@ url = "http://[::1]:3000/";
         }
     }
 
-    
-    
+    obetenerDatosFilter(url: string, filtro: any): Observable<any> {
+        const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
+        const opcionesHttp = { params: parametros };
+        return this.http.get(url, opcionesHttp);
+    }
+
     postDatos(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
         const convertirJson = JSON.stringify(datos);
@@ -72,7 +75,7 @@ url = "http://[::1]:3000/";
     }
     posData(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
-        const urlEdit= this.url + datos;
+        const urlEdit = this.url + datos;
         return this.http.post(urlEdit, datos, opcionesHttp);
     }
 }

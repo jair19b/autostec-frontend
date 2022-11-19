@@ -1,0 +1,64 @@
+<div class="container">
+    <h1 class="text-center my-8"><span class="bi bi-ui-checks"></span> Solicitar una revisión</h1>
+    <div class="layout-component">
+        <main class="layout-component__main">
+            <table class="table table-striped table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>placa</th>
+                        <th>Tipo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Propietario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehiculo of vehiculos; index as i">
+                        <td>
+                            <span *ngIf="i < 10">0{{ i + 1 }}</span>
+                            <span *ngIf="i >= 10">{{ i + 1 }}</span>
+                        </td>
+                        <td>{{ vehiculo.placa }}</td>
+                        <td>{{ vehiculo.tipoVehiculo }}</td>
+                        <td>{{ vehiculo.marca }}</td>
+                        <td>{{ vehiculo.modelo }}</td>
+                        <td>{{ vehiculo.usuario.nombres }}</td>
+                        <td>
+                            <button type="button" class="table-button" (click)="showModal($event, vehiculo)">
+                                <span class="bi bi-calendar-plus-fill"></span>
+                            </button>
+                            <button type="button" class="table-button" (click)="editRevision()">
+                                <span class="bi bi-pencil-fill"></span>
+                            </button>
+                            <button type="button" class="table-button" (click)="deleteRevision()">
+                                <span class="bi bi-trash3"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <!-- modal -->
+    <nz-modal nzWidth="600px" [(nzVisible)]="isVisible" nzTitle="Programar Una Revisión" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <ng-container *nzModalContent>
+            <form class="content-group group--two" [formGroup]="revisionForm">
+                <div>
+                    <nz-calendar
+                        [nzFullscreen]="false"
+                        (nzSelectChange)="onValueChange($event)"
+                        (nzPanelChange)="onPanelChange($event)"></nz-calendar>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Motivo de la revision (estado del vehiculo):</label>
+                        <textarea formControlName="estadoVehiculo" class="form-control" rows="10"></textarea>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+    </nz-modal>
+</div>

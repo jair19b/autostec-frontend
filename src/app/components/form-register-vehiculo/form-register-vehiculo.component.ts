@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 @Component({
     selector: "app-form-register-vehiculo",
     templateUrl: "./form-register-vehiculo.component.html",
-    styleUrls: ["./form-register-vehiculo.component.scss"]
+    styleUrls: ["../form-register-cliente/form-register-cliente.component.scss"]
 })
 export class FormRegisterVehiculoComponent implements OnInit {
     formVehiculo: FormGroup = this.fb.group({
@@ -47,7 +47,9 @@ export class FormRegisterVehiculoComponent implements OnInit {
                     title: "Exito",
                     text: "El vehiculo fue agreagdo correcatmente"
                 });
+                console.log("antes de reset ", this.formVehiculo);
                 this.formVehiculo.reset();
+                console.log(this.formVehiculo);
             },
             error: err => {
                 this.errorMessage = err.error.error.message;

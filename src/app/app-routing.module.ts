@@ -4,6 +4,7 @@ import { FormRegisterClienteComponent } from "./components/form-register-cliente
 import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
+import { RevisionesCreateComponent } from "./components/revisiones-create/revisiones-create.component";
 
 
 
@@ -29,6 +30,10 @@ const routes: Routes = [
     {
         path: "busqueda-detallada",
         component: BusquedaDetalladaComponent
+    },
+    {
+        path: "revisiones/crear",
+        component: RevisionesCreateComponent
     },
     {
         path: "**",
