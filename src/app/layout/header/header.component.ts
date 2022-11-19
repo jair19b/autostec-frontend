@@ -8,23 +8,27 @@ import { Router } from "@angular/router";
     styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-    constructor(
-        public auth: AuthService,
-        private router:Router ) {
+    usuario: any = null;
 
-        let token = localStorage.getItem('token');
-        let usuario= localStorage.getItem('usuario')
+    constructor(public auth: AuthService, private router: Router) {
+        let token = localStorage.getItem("token");
+        let usuario = localStorage.getItem("usuario");
 
-        if(token){
-            this.auth.token= token;
-        }else{
-            this.router.navigate(["/login"])
+        if (token) {
+            this.auth.token = token;
+        } else {
+            this.router.navigate(["/login"]);
         }
 
-        if (usuario){
-            this.auth.usuario= JSON.parse(usuario)
+        if (usuario) {
+            this.auth.usuario = JSON.parse(usuario);
+            this.usuario = this.auth.usuario.data;
         }
     }
 
     ngOnInit(): void {}
+
+    capitalizarPrimeraLetra(str: string): string {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 }

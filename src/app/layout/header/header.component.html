@@ -3,7 +3,7 @@
         <!-- logo -->
         <div class="header__brand">
             <strong routerLink="">AutosTec</strong>
-            <small>Mecánico</small>
+            <small>{{ capitalizarPrimeraLetra(auth.usuario.data.rol) }}</small>
         </div>
 
         <div class="header__collapse header--content">
@@ -16,7 +16,7 @@
                 <nz-dropdown-menu #clientes="nzDropdownMenu">
                     <ul nz-menu>
                         <li class="dropdown__item-title">Acciones de Clientes</li>
-                        <li nz-menu-item class="dropdown__item">
+                        <li nz-menu-item class="dropdown__item" *ngIf="usuario.rol == 'jefe'">
                             <i class="bi bi-person-fill"></i>
                             <span>Consultar</span>
                         </li>
@@ -24,14 +24,14 @@
                             <i class="bi bi-pencil-fill"></i>
                             <span>Registar</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-pencil-square"></i>
                             <span>Modificar</span>
                         </li>
                         <li nz-menu-item nzDanger class="dropdown__item">
                             <i class="bi bi-trash3-fill"></i>
                             <span>Eliminar</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </nz-dropdown-menu>
             </nav>
@@ -51,14 +51,14 @@
                             <i class="bi bi-pencil-fill"></i>
                             <span>Registar</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-pencil-square"></i>
                             <span>Modificar</span>
                         </li>
                         <li nz-menu-item nzDanger class="dropdown__item">
                             <i class="bi bi-trash3-fill"></i>
                             <span>Eliminar</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </nz-dropdown-menu>
             </nav>
@@ -70,35 +70,35 @@
                 <nz-dropdown-menu #mecanicos="nzDropdownMenu">
                     <ul nz-menu>
                         <li class="dropdown__item-title">Acciones para Mecánicos</li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-tools"></i>
                             <span>Consultar</span>
-                        </li>
+                        </li> -->
                         <li nz-menu-item class="dropdown__item" routerLink="/busqueda-v-asignado">
                             <i class="bi bi-box2-heart"></i>
-                            <span>Asignados</span>
+                            <span>Consultar</span>
                         </li>
                         <li nz-menu-item class="dropdown__item" routerLink="/registrar-mecanico">
                             <i class="bi bi-pencil-fill"></i>
                             <span>Registar</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-pencil-square"></i>
                             <span>Modificar</span>
                         </li>
                         <li nz-menu-item nzDanger class="dropdown__item">
                             <i class="bi bi-trash3-fill"></i>
                             <span>Eliminar</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </nz-dropdown-menu>
             </nav>
             <nav class="header__nav">
-                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="mecanicos">
-                    <span class="bi bi-wrench-adjustable"></span>
-                    Mecanicos
+                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="repuestos">
+                    <span class="bi bi bi-bag"></span>
+                    Repuestos
                 </a>
-                <nz-dropdown-menu #mecanicos="nzDropdownMenu">
+                <nz-dropdown-menu #repuestos="nzDropdownMenu">
                     <ul nz-menu>
                         <li class="dropdown__item-title">Acciones Repuestos</li>
                         <li routerLink="busquedaRepuesto" nz-menu-item class="dropdown__item">
@@ -109,14 +109,14 @@
                             <i class="bi bi bi-bag"></i>
                             <span>Repuestos para compra</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-pencil-square"></i>
                             <span>Modificar</span>
                         </li>
                         <li nz-menu-item nzDanger class="dropdown__item">
                             <i class="bi bi-trash3-fill"></i>
                             <span>Eliminar</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </nz-dropdown-menu>
             </nav>
@@ -130,20 +130,20 @@
                         <li class="dropdown__item-title">Acciones para Revisiones</li>
                         <li nz-menu-item class="dropdown__item" routerLink="revisiones/crear">
                             <i class="bi bi-pencil-fill"></i>
-                            <span>Crear</span>
+                            <span>Solicitar</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <li nz-menu-item class="dropdown__item" routerLink="asignar-revisiones">
                             <i class="bi bi-list-check"></i>
                             <span>Listar</span>
                         </li>
-                        <li nz-menu-item class="dropdown__item">
+                        <!-- <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-check-all"></i>
                             <span>Completar</span>
                         </li>
                         <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-pencil-square"></i>
                             <span>Modificar</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </nz-dropdown-menu>
             </nav>

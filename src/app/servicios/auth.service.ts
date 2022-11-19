@@ -1,22 +1,17 @@
-import { Injectable } from '@angular/core';
-import { CrudServiciosService } from './crud-servicios.service';
+import { Injectable } from "@angular/core";
+import { CrudServiciosService } from "./crud-servicios.service";
 
-interface Credenciales{
-  correo: string,
-  contraseina: string
+interface Credenciales {
+    correo: string;
+    contraseina: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root"
 })
 export class AuthService {
+    usuario: any;
+    token: string = "";
 
-  usuario: any;
-  token: string="";
-
- 
-  constructor() { }
-
- 
-
+    constructor() {}
 }

@@ -23,7 +23,7 @@
                     <td [nzExpand]="expandSet.has(convertirNumeros(data.id))" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
                     <td>{{ data.placa }}</td>
                     <td>{{ data.fechaRevision }}</td>
-                    <td>{{ data.usuario.nombres }}</td>
+                    <td>{{ data.mecanico.nombres }}</td>
                 </tr>
                 <tr [nzExpand]="expandSet.has(convertirNumeros(data.id))">
                     <p>

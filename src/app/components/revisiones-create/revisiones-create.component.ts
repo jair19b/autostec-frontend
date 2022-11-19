@@ -3,6 +3,7 @@ import { CrudServiciosService } from "src/app/servicios/crud-servicios.service";
 import { FormBuilder } from "@angular/forms";
 import { FormGroup } from "@angular/forms";
 import * as moment from "moment";
+import { AuthService } from "./../../servicios/auth.service";
 const Swal = require("sweetalert2");
 
 interface Propietario {
@@ -56,11 +57,11 @@ export class RevisionesCreateComponent implements OnInit {
         mecanicoId: [""]
     });
 
-    constructor(public crudService: CrudServiciosService, public fb: FormBuilder) {}
+    constructor(public crudService: CrudServiciosService, public fb: FormBuilder, public auth: AuthService) {}
 
     ngOnInit(): void {
         const url = "http://localhost:3000/vehiculos";
-        const filtro: any = { where: { usuarioId: "63681c459908bc14bcf3a825" }, include: [{ relation: "usuario" }] };
+        const filtro: any = { where: { usuarioId: this.auth.usuario.data.id }, include: [{ relation: "usuario" }] };
 
         this.crudService.obetenerDatosFilter(url, filtro).subscribe({
             next: data => {
@@ -80,6 +81,7 @@ export class RevisionesCreateComponent implements OnInit {
         this.revisionForm.controls["placa"].setValue(vehiculo.placa);
         this.revisionForm.controls["fechaRevision"].setValue(moment().format("YYYY-MM-DD"));
         this.revisionForm.controls["vehiculoId"].setValue(vehiculo.id);
+        this.revisionForm.controls["mecanicoId"].setValue(this.auth.usuario.data.id);
         console.log(this.revisionForm.getRawValue());
     }
 
@@ -98,6 +100,7 @@ export class RevisionesCreateComponent implements OnInit {
             },
             error: err => {
                 this.errorMessage = err.error.error.message;
+                console.log(err.error.error);
             }
         });
     }

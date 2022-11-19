@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CrudServiciosService } from "./../servicios/crud-servicios.service";
 import { NzTableLayout, NzTablePaginationPosition, NzTablePaginationType, NzTableSize } from "ng-zorro-antd/table";
 import { filter } from "rxjs";
+import { AuthService } from "src/app/servicios/auth.service";
 
 interface Revision {
     placa: string;
@@ -17,7 +18,7 @@ interface Revision {
     styleUrls: ["./asignar-revisiones.component.scss"]
 })
 export class AsignarRevisionesComponent implements OnInit {
-    constructor(public CrudServiciosService: CrudServiciosService) {}
+    constructor(public CrudServiciosService: CrudServiciosService, public auth: AuthService) {}
 
     editCache: { [key: string]: { edit: boolean; data: Revision } } = {};
     i = 0;
@@ -29,30 +30,37 @@ export class AsignarRevisionesComponent implements OnInit {
 
     aceptarRevision(event: any, revision: Revision) {
         const url = "http://[::1]:3000/revisiones/" + revision.id;
-        this.CrudServiciosService.modificarDatosFilter(url, { estadoRevision: "aceptada", mecanicoId: "6378478574f45f07e018608f" },{}).subscribe({
+        this.CrudServiciosService.modificarDatosFilter(
+            url,
+            { estadoRevision: "aceptada", mecanicoId: this.auth.usuario.data.id },
+            {}
+        ).subscribe({
             next: data => {
-              const copiaLista=JSON.parse(JSON.stringify(this.listOfData))
-              for(let i in copiaLista){
-                if(copiaLista[i].id==revision.id){
-                  copiaLista[i].estadoRevision="aceptada";
+                const copiaLista = JSON.parse(JSON.stringify(this.listOfData));
+                for (let i in copiaLista) {
+                    if (copiaLista[i].id == revision.id) {
+                        copiaLista[i].estadoRevision = "aceptada";
+                    }
                 }
-              }
-              this.listOfData=copiaLista;
+                this.listOfData = copiaLista;
             }
         });
     }
     rechazarRevision(event: any, revision: Revision) {
-
         const url = "http://[::1]:3000/revisiones/" + revision.id;
-        this.CrudServiciosService.modificarDatosFilter(url, { estadoRevision: "rechazada", mecanicoId: "6378478574f45f07e018608f" },{}).subscribe({
+        this.CrudServiciosService.modificarDatosFilter(
+            url,
+            { estadoRevision: "rechazada", mecanicoId: this.auth.usuario.data.id },
+            {}
+        ).subscribe({
             next: data => {
-              const copiaLista=JSON.parse(JSON.stringify(this.listOfData))
-              for(let i in copiaLista){
-                if(copiaLista[i].id==revision.id){
-                  copiaLista[i].estadoRevision="rechazada";
+                const copiaLista = JSON.parse(JSON.stringify(this.listOfData));
+                for (let i in copiaLista) {
+                    if (copiaLista[i].id == revision.id) {
+                        copiaLista[i].estadoRevision = "rechazada";
+                    }
                 }
-              }
-              this.listOfData=copiaLista;
+                this.listOfData = copiaLista;
             }
         });
     }

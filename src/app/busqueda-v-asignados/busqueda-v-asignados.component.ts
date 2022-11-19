@@ -12,8 +12,7 @@ interface Asignacion {
     horaSalida: string;
     vehiculoId: string;
     mecanicoId: string;
-
-    usuario: {
+    mecanico: {
         id: string;
         cedula: string;
         nombres: string;
@@ -53,7 +52,7 @@ export class BusquedaVAsignadosComponent implements OnInit {
     busquedaDetalladaA() {
         let url = "http://[::1]:3000/revisiones";
         let filtro: any = {
-            include: [{ relation: "vehiculo" }]
+            include: [{ relation: "mecanico" }]
         };
         const parametros = this.busquedaGroupA.get("busqueda")?.value;
         if (parametros.length >= 2) {
