@@ -1,0 +1,38 @@
+<div class="container">
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+        <form [formGroup]="busquedaGroupA">
+            <input type="text" nz-input placeholder="Nombre del mecánico" formControlName="busqueda" />
+        </form>
+    </nz-input-group>
+    <ng-template #suffixButton>
+        <button nz-button nzType="primary" nzSize="large" nzSearch (click)="busquedaDetalladaA()">Buscar</button>
+    </ng-template>
+
+    <nz-table #nzTable [nzData]="listOfData" nzTableLayout="fixed">
+        <thead>
+            <tr>
+                <th nzWidth="60px"></th>
+                <th>Placa</th>
+                <th>fecha de revision</th>
+                <th>Mecánico asignado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let data of nzTable.data">
+                <tr>
+                    <td [nzExpand]="expandSet.has(convertirNumeros(data.id))" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                    <td>{{ data.placa }}</td>
+                    <td>{{ data.fechaRevision }}</td>
+                    <td>{{ data.usuario.nombres }}</td>
+                </tr>
+                <tr [nzExpand]="expandSet.has(convertirNumeros(data.id))">
+                    <p>
+                        <strong>horaEntrada </strong>{{ data.horaEntrada }} <br />
+                        <strong>horaSalida: </strong>{{ data.horaSalida }} <br />
+                        <!-- <strong>Pais: </strong>{{ data. }} <br> -->
+                    </p>
+                </tr>
+            </ng-container>
+        </tbody>
+    </nz-table>
+</div>

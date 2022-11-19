@@ -30,6 +30,11 @@ export class CrudServiciosService {
             return this.http.get(url);
         }
     }
+    obetenerDatosFilter(url: string, filtro: any): Observable<any> {
+        const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
+        const opcionesHttp = { params: parametros };
+        return this.http.get(url, opcionesHttp);
+    }
 
     postDatos(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };

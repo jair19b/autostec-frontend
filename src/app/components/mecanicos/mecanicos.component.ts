@@ -1,106 +1,96 @@
-import { FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
-import Swal from 'sweetalert2'
-import { CrudServiciosService } from 'src/app/servicios/crud-servicios.service';
+import { FormGroup } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
+import { UntypedFormBuilder, UntypedFormControl, Validators } from "@angular/forms";
+import Swal from "sweetalert2";
+import { CrudServiciosService } from "src/app/servicios/crud-servicios.service";
 
+interface Sede {
+    id: string;
+    nombre: string;
+    direccion: string;
+    ciudad: string;
+}
 
 @Component({
-  selector: 'app-mecanicos',
-  templateUrl: './mecanicos.component.html',
-  styleUrls: ['./mecanicos.component.scss']
+    selector: "app-mecanicos",
+    templateUrl: "./mecanicos.component.html",
+    styleUrls: ["./mecanicos.component.scss"]
 })
 export class MecanicosComponent implements OnInit {
-  registrar: string = '';
-  formMec: FormGroup = this.fb.group({
-    nombres: ['', [Validators.required, Validators.pattern("hdjahs")]],
-    apellidos: [''],
-    correo: [''],
-    contraseina: [''],
-    direccion: [''],
-    cedula: [''],
-    ciudadResidencia: [''],
-    telefono: [''],
-    rol: [''],
-    nivelEstudios: [''],
-    fechaNacimiento: [new Date()],
-    sedeId: [''],
-  })
+    registrar: string = "";
+    formMec: FormGroup = this.fb.group({
+        nombres: ["", [Validators.required]],
+        apellidos: [""],
+        correo: [""],
+        contraseina: [""],
+        direccion: [""],
+        cedula: [""],
+        ciudadResidencia: [""],
+        telefono: [""],
+        rol: ["Mecanico"],
+        nivelEstudios: [""],
+        fechaNacimiento: [""],
+        sedeId: [""]
+    });
 
-  sedes: any[] = [];
-  errorMessage: string = "";
-  validateForm!: UntypedFormGroup;
-  captchaTooltipIcon: NzFormTooltipIcon = {
-    type: 'info-circle',
-    theme: 'twotone'
-  };
+    sedes: Sede[] = [];
+    errorMessage: string = "";
 
-  submitForm(): void {
-    if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-    } else {
-      Object.values(this.validateForm.controls).forEach(control => {
-        if (control.invalid) {
-          control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
+    ngOnInit(): void {
+        const url = "http://localhost:3000/sedes/get-all";
+        this.crudService.obtenerDatos(url).subscribe({
+            next: data => {
+                this.sedes = data;
+                console.log(data);
+            }
+        });
+    }
+
+    constructor(private fb: UntypedFormBuilder, public crudService: CrudServiciosService) {}
+
+    submitForm(): void {
+        if (this.formMec.valid) {
+            const urlUser = "http://[::1]:3000/jefe/crear/usuarios";
+
+            this.crudService.postDatos(urlUser, this.formMec.value).subscribe({
+                next: data => {
+                    this.errorMessage = "";
+                    Swal.fire({
+                        icon: "success",
+                        title: "Exito",
+                        text: "El mecanico fue creado correctamente"
+                    });
+                    this.formMec.reset();
+                },
+                error: err => {
+                    this.errorMessage = err.error.error.message;
+                    console.log(err);
+                }
+            });
+        } else {
+            Object.values(this.formMec.controls).forEach(control => {
+                if (control.invalid) {
+                    control.markAsDirty();
+                    control.updateValueAndValidity({ onlySelf: true });
+                }
+            });
         }
-      });
-    }
-  }
-  
-  updateConfirmValidator(): void {
-    Promise.resolve().then(() => this.validateForm.controls['checkPassword'].updateValueAndValidity());
-  }
-
-  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls['password'].value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
-
-  constructor(
-    private fb: UntypedFormBuilder, public crudService: CrudServiciosService) {
-    this.registrar = '';
-  }
-
-  ngOnInit(): void {
-  }
-      registerMec(): void{
-      const datosMec = this.formMec.getRawValue();
-      console.log(datosMec);
-
-      const url = "http://localhost:3000/sedes/get-all";
-      this.crudService.obtenerDatos(url).subscribe({
-          next: data => {
-              this.sedes = data;
-              console.log(data);
-          }
-      });
     }
 
-    registrarUsuario() {
-      const urlUser = "http://[::1]:3000/jefe/crear/usuarios";
+    updateConfirmValidator(): void {
+        Promise.resolve().then(() => this.formMec.controls["checkPassword"].updateValueAndValidity());
+    }
 
-      this.crudService.postDatos(urlUser, this.formMec.value).subscribe({
-          next: data => {
-              this.errorMessage = "";
-              Swal.fire({
-                  icon: "success",
-                  title: "Exito",
-                  text: "El cliente fue creado correctamente"
-              });
-              this.formMec.reset();
-          },
-          error: err => {
-              this.errorMessage = err.error.error.message;
-          }
-      });
-  }
+    confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
+        if (!control.value) {
+            return { required: true };
+        } else if (control.value !== this.formMec.controls["password"].value) {
+            return { confirm: true, error: true };
+        }
+        return {};
+    };
 
-  }
-
+    genderChange(value: string): void {
+        this.formMec.get("sedeId")?.setValue(value);
+    }
+}

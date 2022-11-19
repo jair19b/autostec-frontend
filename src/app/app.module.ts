@@ -18,12 +18,13 @@ import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detall
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzTableModule } from "ng-zorro-antd/table";
 import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { BusquedaVAsignadosComponent } from './busqueda-v-asignados/busqueda-v-asignados.component';
 
 registerLocaleData(es);
 
 @NgModule({
-    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent, MecanicosComponent],
+    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent, MecanicosComponent, BusquedaVAsignadosComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -35,7 +36,8 @@ registerLocaleData(es);
         NzInputModule,
         NzTableModule,
         NzFormModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NzSelectModule
     ],
     providers: [{ provide: NZ_I18N, useValue: es_ES }],
     bootstrap: [AppComponent]

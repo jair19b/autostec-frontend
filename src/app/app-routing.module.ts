@@ -5,6 +5,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { MecanicosComponent } from "./components/mecanicos/mecanicos.component";
+import { BusquedaVAsignadosComponent } from "./busqueda-v-asignados/busqueda-v-asignados.component";
 
 const routes: Routes = [
     {
@@ -27,6 +28,10 @@ const routes: Routes = [
     {
         path: "registrar-mecanico",
         component: MecanicosComponent
+    },
+    {
+        path: "busqueda-v-asignado",
+        component: BusquedaVAsignadosComponent
     },
     {
         path: "**",
