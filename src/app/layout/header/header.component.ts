@@ -31,4 +31,11 @@ export class HeaderComponent implements OnInit {
     capitalizarPrimeraLetra(str: string): string {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
+
+    // cerrarSesion(): void {
+    //     localStorage.clear();
+    //     this.router.navigate(["login"]);
+    //     this.auth.token = "";
+    //     this.auth.usuario = null;
+    // }
 }
