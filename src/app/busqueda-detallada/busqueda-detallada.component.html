@@ -1,0 +1,46 @@
+<div class="container">
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+        <form [formGroup]="busquedaGroup">
+            <input type="text" nz-input placeholder="Digite su placa" formControlName="busqueda" />
+        </form>
+    </nz-input-group>
+    <ng-template #suffixButton>
+        <button nz-button nzType="primary" nzSize="large" nzSearch (click)="busquedaDetallada()">Buscar</button>
+    </ng-template>
+
+    <nz-table #nzTable [nzData]="listOfData" nzTableLayout="fixed">
+        <thead>
+            <tr>
+                <th nzWidth="60px"></th>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Tipo de vehiculo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let data of nzTable.data">
+                <tr>
+                    <td [nzExpand]="expandSet.has(convertirNumeros(data.id))" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                    <td>{{ data.placa }}</td>
+                    <td>{{ data.marca }}</td>
+                    <td>{{ data.tipoVehiculo }}</td>
+                </tr>
+                <tr [nzExpand]="expandSet.has(convertirNumeros(data.id))">
+                    <p>
+                        <strong>Id: </strong>{{ data.id }} <br>
+                        <strong>Placa: </strong>{{ data.placa }} <br>
+                        <strong>Tipo de vehiculo: </strong>{{ data.tipoVehiculo }} <br>
+                        <strong>Marca: </strong>{{ data.marca }} <br>
+                        <strong>Año: </strong>{{ data.anio }} <br>
+                        <strong>Modelo: </strong>{{ data.modelo }} <br>
+                        <strong>Cilindraje: </strong>{{ data.cilindraje }} <br>
+                        <strong>Pais origen: </strong>{{ data.paisOrigen }} <br>
+                        <strong>Descripcion: </strong>{{ data.descripcion }} <br>
+                        <strong>Id del usuario: </strong>{{ data.usuarioId}} <br>
+                    </p>
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </nz-table>
+</div>

@@ -1,128 +1,155 @@
 <header class="header header--content">
-    <div class="container header--content">
-        <!-- logo -->
-        <div class="header__brand">
-            <strong>AutosTec</strong>
-            <small>Mecanico</small>
-        </div>
-
-        <div class="header__collapse header--content">
-            <!-- barra de bavegacion -->
-            <nav class="header__nav">
-                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="clientes">
-                    <span class="bi bi-people-fill"></span>
-                    Clientes
-                </a>
-                <nz-dropdown-menu #clientes="nzDropdownMenu">
-                    <ul nz-menu>
-                        <li class="dropdown__item-title">Acciones de Clientes</li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-person-fill"></i>
-                            <span>Consultar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-fill"></i>
-                            <span>Registar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-square"></i>
-                            <span>Modificar</span>
-                        </li>
-                        <li nz-menu-item nzDanger class="dropdown__item">
-                            <i class="bi bi-trash3-fill"></i>
-                            <span>Eliminar</span>
-                        </li>
-                    </ul>
-                </nz-dropdown-menu>
-            </nav>
-            <nav class="header__nav">
-                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="vehiculos">
-                    <span class="bi bi-car-front-fill"></span>
-                    Vehiculos
-                </a>
-                <nz-dropdown-menu #vehiculos="nzDropdownMenu">
-                    <ul nz-menu>
-                        <li class="dropdown__item-title">Acciones para Vehiculos</li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-car-front-fill"></i>
-                            <span>Consultar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-fill"></i>
-                            <span>Registar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-square"></i>
-                            <span>Modificar</span>
-                        </li>
-                        <li nz-menu-item nzDanger class="dropdown__item">
-                            <i class="bi bi-trash3-fill"></i>
-                            <span>Eliminar</span>
-                        </li>
-                    </ul>
-                </nz-dropdown-menu>
-            </nav>
-            <nav class="header__nav">
-                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="mecanicos">
-                    <span class="bi bi-wrench-adjustable"></span>
-                    Mecanicos
-                </a>
-                <nz-dropdown-menu #mecanicos="nzDropdownMenu">
-                    <ul nz-menu>
-                        <li class="dropdown__item-title">Acciones para Mecanicos</li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-tools"></i>
-                            <span>Consultar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-fill"></i>
-                            <span>Registar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-square"></i>
-                            <span>Modificar</span>
-                        </li>
-                        <li nz-menu-item nzDanger class="dropdown__item">
-                            <i class="bi bi-trash3-fill"></i>
-                            <span>Eliminar</span>
-                        </li>
-                    </ul>
-                </nz-dropdown-menu>
-            </nav>
-            <nav class="header__nav">
-                <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="revisiones">
-                    <span class="bi bi-card-checklist"></span>
-                    Revisiones
-                </a>
-                <nz-dropdown-menu #revisiones="nzDropdownMenu">
-                    <ul nz-menu>
-                        <li class="dropdown__item-title">Acciones para Revisiones</li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-list-check"></i>
-                            <span>Listar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-check-all"></i>
-                            <span>Completar</span>
-                        </li>
-                        <li nz-menu-item class="dropdown__item">
-                            <i class="bi bi-pencil-square"></i>
-                            <span>Modificar</span>
-                        </li>
-                    </ul>
-                </nz-dropdown-menu>
-            </nav>
-
-            <!-- naveacion de ussuario -->
-            <nav class="haeder__nav header__nav--short">
-                <a class="header__nav-link">
-                    <i class="bi bi-bell-fill"></i>
-                </a>
-                <a class="header__nav-link">
-                    <i class="bi bi-x-circle-fill"></i>
-                    <span>Salir</span>
-                </a>
-            </nav>
-        </div>
+  <div class="container header--content">
+    <!-- logo -->
+    <div class="header__brand">
+      <strong routerLink="">AutosTec</strong>
+      <small>Mecanico</small>
     </div>
+
+    <div class="header__collapse header--content">
+      <!-- barra de bavegacion -->
+      <nav class="header__nav">
+        <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="clientes">
+          <span class="bi bi-people-fill"></span>
+          Clientes
+        </a>
+        <nz-dropdown-menu #clientes="nzDropdownMenu">
+          <ul nz-menu>
+            <li class="dropdown__item-title">Acciones de Clientes</li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-person-fill"></i>
+              <span>Consultar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item" routerLink="registrar-cliente">
+              <i class="bi bi-pencil-fill"></i>
+              <span>Registar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-pencil-square"></i>
+              <span>Modificar</span>
+            </li>
+            <li nz-menu-item nzDanger class="dropdown__item">
+              <i class="bi bi-trash3-fill"></i>
+              <span>Eliminar</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </nav>
+      <nav class="header__nav">
+        <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="vehiculos">
+          <span class="bi bi-car-front-fill"></span>
+          Vehiculos
+        </a>
+        <nz-dropdown-menu #vehiculos="nzDropdownMenu">
+          <ul nz-menu>
+            <li class="dropdown__item-title">Acciones para Vehiculos</li>
+            <li routerLink="busqueda-detallada" nz-menu-item class="dropdown__item">
+              <i class="bi bi-car-front-fill"></i>
+              <span>Consultar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item" routerLink="registrar-vehiculo">
+              <i class="bi bi-pencil-fill"></i>
+              <span>Registar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-pencil-square"></i>
+              <span>Modificar</span>
+            </li>
+            <li nz-menu-item nzDanger class="dropdown__item">
+              <i class="bi bi-trash3-fill"></i>
+              <span>Eliminar</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </nav>
+      <nav class="header__nav">
+        <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="mecanicos">
+          <span class="bi bi-wrench-adjustable"></span>
+          Mecanicos
+        </a>
+        <nz-dropdown-menu #mecanicos="nzDropdownMenu">
+          <ul nz-menu>
+            <li class="dropdown__item-title">Acciones Repuestos</li>
+            <li routerLink="busquedaRepuesto" nz-menu-item class="dropdown__item">
+              <i class="bi bi-tools"></i>
+              <span>Consultar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item" routerLink="registro-repuesto">
+              <i class="bi bi bi-bag"></i>
+              <span>Repuestos para compra</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-pencil-square"></i>
+              <span>Modificar</span>
+            </li>
+            <li nz-menu-item nzDanger class="dropdown__item">
+              <i class="bi bi-trash3-fill"></i>
+              <span>Eliminar</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </nav>
+      <nav class="header__nav">
+        <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="mecanicos">
+          <span class="bi bi bi-bag"></span>
+          Repuestos
+        </a>
+        <nz-dropdown-menu #mecanicos="nzDropdownMenu">
+          <ul nz-menu>
+            <li class="dropdown__item-title">Acciones para Repuestos</li>
+            <li nz-menu-item class="dropdown__item" routerLink="busquedaRepuesto" >
+              <i class="bi bi-tools" ></i>
+              <span>Consultar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item" routerLink="registro-repuesto">
+              <i class="bi bi bi-bag"></i>
+              <span>Repuestos</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-pencil-square"></i>
+              <span>Modificar</span>
+            </li>
+            <li nz-menu-item nzDanger class="dropdown__item">
+              <i class="bi bi-trash3-fill"></i>
+              <span>Eliminar</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </nav>
+      <nav class="header__nav">
+        <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="revisiones">
+          <span class="bi bi-card-checklist"></span>
+          Revisiones
+        </a>
+        <nz-dropdown-menu #revisiones="nzDropdownMenu">
+          <ul nz-menu>
+            <li class="dropdown__item-title">Acciones para Revisiones</li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-list-check"></i>
+              <span>Listar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-check-all"></i>
+              <span>Completar</span>
+            </li>
+            <li nz-menu-item class="dropdown__item">
+              <i class="bi bi-pencil-square"></i>
+              <span>Modificar</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </nav>
+
+      <!-- naveacion de ussuario -->
+      <nav class="haeder__nav header__nav--short">
+        <a class="header__nav-link">
+          <i class="bi bi-bell-fill"></i>
+        </a>
+        <a class="header__nav-link">
+          <i class="bi bi-x-circle-fill"></i>
+          <span>Salir</span>
+        </a>
+      </nav>
+    </div>
+  </div>
 </header>

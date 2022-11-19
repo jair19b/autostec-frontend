@@ -1,0 +1,81 @@
+<div class="container">
+    <h1 class="title"><span class="bi bi-person-fill"></span> Registrar un Cliente</h1>
+    <div *ngIf="errorMessage.length > 0" class="text-danger my-4 text-center">{{ errorMessage }}</div>
+    <form class="form-container" [formGroup]="formRegister">
+        <div class="form-group">
+            <label>Sede:</label>
+            <select class="form-select" formControlName="sedeId">
+                <option value="">Seleccona la sede a la que perteneces</option>
+                <option *ngFor="let sede of sedes" value="{{ sede.id }}">{{ sede.nombre }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userName">Nombres:</label>
+            <input type="text" class="form-control" id="userName" placeholder="Ingrese su nombre" formControlName="nombres" />
+        </div>
+        <div class="form-group">
+            <label for="userLastName">Apellidos:</label>
+            <input type="text" class="form-control" id="userLastName" placeholder="Ingrese sus apellidos" formControlName="apellidos" />
+        </div>
+        <div class="form-group">
+            <label for="userEmail">Correo Electrónico:</label>
+            <input type="email" class="form-control" id="userEmail" placeholder="Dirección de correo electrónico" formControlName="correo" />
+        </div>
+        <div class="form-group">
+            <label for="userPassword">Contraseña:</label>
+            <input
+                type="password"
+                class="form-control"
+                id="userPassword"
+                placeholder="Cree una clave de acceso"
+                formControlName="contraseina" />
+        </div>
+        <div class="form-group">
+            <label for="userAddress">Dirección:</label>
+            <input type="text" class="form-control" id="userAddress" placeholder="Dirección" formControlName="direccion" />
+        </div>
+        <div class="form-content-group group--two">
+            <div class="form-group">
+                <label>Tipo de Identificación:</label>
+                <select class="form-select">
+                    <option value="CC">Cédula Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="PS">Pasaporte</option>
+                    <option value="CE">Cédula Extranjería</option>
+                    <option value="PEP">Permiso Especial de Permanencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userDNI">Número de identificación:</label>
+                <input type="text" class="form-control" id="userDNI" placeholder="Ingrese DNI" formControlName="cedula" />
+            </div>
+        </div>
+        <div class="form-content-group group--four">
+            <div class="form-group">
+                <label>Departamento:</label>
+                <select class="form-select">
+                    <option value="" selected>Seleccione un departamento</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ciudad:</label>
+                <select class="form-select" formControlName="ciudadResidencia">
+                    <option value="" selected>Seleccione una ciudad</option>
+                    <option value="Cali" selected>Cali</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userPhone">Teléfono:</label>
+                <input type="tel" class="form-control" id="userPhone" placeholder="Ingrese su nuemro de teléfono" formControlName="telefono" />
+            </div>
+            <div class="form-group">
+                <label for="userBirthday">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" id="userBirthday" formControlName="fechaNacimiento" />
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="registrarUsuario()">
+            <span class="bi bi-pencil-fill"></span>
+            Registrar Usuario
+        </button>
+    </form>
+</div>
