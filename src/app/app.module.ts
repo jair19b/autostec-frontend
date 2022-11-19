@@ -20,7 +20,7 @@ import { NzTableModule } from "ng-zorro-antd/table";
 import { RevisionesCreateComponent } from "./components/revisiones-create/revisiones-create.component";
 import { NzModalModule } from "ng-zorro-antd/modal";
 import { NzCalendarModule } from "ng-zorro-antd/calendar";
-
+import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
 
 registerLocaleData(es);
 
@@ -31,6 +31,7 @@ registerLocaleData(es);
         FormRegisterVehiculoComponent,
         HomeComponent,
         BusquedaDetalladaComponent,
+        AsignarRevisionesComponent,
         RevisionesCreateComponent
     ],
     imports: [

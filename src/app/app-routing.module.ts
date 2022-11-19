@@ -5,17 +5,23 @@ import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { RevisionesCreateComponent } from "./components/revisiones-create/revisiones-create.component";
-
-
+import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
 
 const routes: Routes = [
-
     {
-        path:"login",
-        loadChildren:()=>import("./modules/login/login.module").then((m)=>m.LoginModule)
+        path: "login",
+        loadChildren: () => import("./modules/login/login.module").then(m => m.LoginModule)
     },
     {
         path: "inicio",
+        component: HomeComponent
+    },
+    {
+        path: "asignar-revisiones",
+        component: AsignarRevisionesComponent
+    },
+    {
+        path: "",
         component: HomeComponent,
         pathMatch: "full"
     },
@@ -38,8 +44,7 @@ const routes: Routes = [
     {
         path: "**",
         component: HomeComponent
-    },
-    
+    }
 ];
 
 @NgModule({
