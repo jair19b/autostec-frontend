@@ -5,9 +5,16 @@ import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 
+
+
 const routes: Routes = [
+
     {
-        path: "",
+        path:"login",
+        loadChildren:()=>import("./modules/login/login.module").then((m)=>m.LoginModule)
+    },
+    {
+        path: "inicio",
         component: HomeComponent,
         pathMatch: "full"
     },
@@ -26,7 +33,8 @@ const routes: Routes = [
     {
         path: "**",
         component: HomeComponent
-    }
+    },
+    
 ];
 
 @NgModule({

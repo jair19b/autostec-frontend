@@ -1,9 +1,9 @@
-<header class="header header--content">
+<header class="header header--content" *ngIf="auth.token" >
     <div class="container header--content">
         <!-- logo -->
         <div class="header__brand">
             <strong routerLink="">AutosTec</strong>
-            <small>Mecanico</small>
+            <small>Mecánico</small>
         </div>
 
         <div class="header__collapse header--content">
@@ -38,7 +38,7 @@
             <nav class="header__nav">
                 <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="vehiculos">
                     <span class="bi bi-car-front-fill"></span>
-                    Vehiculos
+                    Vehículos
                 </a>
                 <nz-dropdown-menu #vehiculos="nzDropdownMenu">
                     <ul nz-menu>
@@ -65,11 +65,11 @@
             <nav class="header__nav">
                 <a class="header__nav-link" nz-dropdown nzTrigger="click" [nzDropdownMenu]="mecanicos">
                     <span class="bi bi-wrench-adjustable"></span>
-                    Mecanicos
+                    Mecánicos
                 </a>
                 <nz-dropdown-menu #mecanicos="nzDropdownMenu">
                     <ul nz-menu>
-                        <li class="dropdown__item-title">Acciones para Mecanicos</li>
+                        <li class="dropdown__item-title">Acciones para Mecánicos</li>
                         <li nz-menu-item class="dropdown__item">
                             <i class="bi bi-tools"></i>
                             <span>Consultar</span>

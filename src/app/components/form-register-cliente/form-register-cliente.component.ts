@@ -41,6 +41,21 @@ export class FormRegisterClienteComponent implements OnInit {
         const urlUser = "http://localhost:3000/clientes/crear";
 
         this.crudService.postDatos(urlUser, this.formRegister.value).subscribe({
+            next: (data) => {
+                this.errorMessage = "";
+                Swal.fire({
+                    icon: "success",
+                    title: "Exito",
+                    text: "El cliente fue creado correctamente"
+                });
+                this.formRegister.reset();
+            },
+            error: err => {
+                this.errorMessage = err.error.error.message;
+            }
+        });
+        
+        this.crudService.posData(urlUser, this.formRegister.value).subscribe({
             next: data => {
                 this.errorMessage = "";
                 Swal.fire({

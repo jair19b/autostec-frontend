@@ -6,6 +6,9 @@ import { Observable } from "rxjs";
     providedIn: "root"
 })
 export class CrudServiciosService {
+url = "http://[::1]:3000/";
+
+   
     constructor(private http: HttpClient) {}
 
     obtenerDatos(url: string, filtro?: string, tipoFiltro: string = "documento"): Observable<any> {
@@ -31,6 +34,8 @@ export class CrudServiciosService {
         }
     }
 
+    
+    
     postDatos(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
         const convertirJson = JSON.stringify(datos);
@@ -64,5 +69,10 @@ export class CrudServiciosService {
 
     eliminarDatos(url: string): Observable<any> {
         return this.http.delete(url);
+    }
+    posData(url: string, datos: any): Observable<any> {
+        const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
+        const urlEdit= this.url + datos;
+        return this.http.post(urlEdit, datos, opcionesHttp);
     }
 }

@@ -1,0 +1,17 @@
+.content-login{
+    justify-content: center;
+    display: flex;
+    height: calc(100vh - 230px);
+    align-items: center;
+     
+    .login-form{
+        width: 350px;
+    }
+}
+.logo-login{
+    font-weight: bolder;
+    display: flex;
+    height: calc(100vh - 450px);
+    font-size: 6rem;
+    text-align: left;
+}

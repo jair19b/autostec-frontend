@@ -18,6 +18,7 @@ import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detall
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzTableModule } from "ng-zorro-antd/table";
 
+
 registerLocaleData(es);
 
 @NgModule({
