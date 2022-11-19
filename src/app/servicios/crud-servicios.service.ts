@@ -31,12 +31,15 @@ export class CrudServiciosService {
         }
     }
 
+<<<<<<< HEAD
     obetenerDatosFilter(url: string, filtro: any): Observable<any> {
       const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
       const opcionesHttp = { params: parametros };
       return this.http.get(url, opcionesHttp);
   }
 
+=======
+>>>>>>> e195786e9a1aea5cd2b9c29d5f59881f0da4903e
     postDatos(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
         const convertirJson = JSON.stringify(datos);
