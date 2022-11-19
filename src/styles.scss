@@ -13,3 +13,169 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+$font-size-sm: 0.75rem !default;
+$font-size-md: 0.875rem !default;
+$font-size: 16px !default;
+$font-size-lg: 1.125rem !default;
+$font-size-xl: 1.25rem !default;
+$font-size-2xl: 1.375rem !default;
+$font-size-3xl: 1.5rem !default;
+$font-size-4xl: 1.625rem !default;
+$font-size-5xl: 1.75rem !default;
+$font-size-6xl: 1.875rem !default;
+
+@for $i from 0 to 11 {
+    .p-#{$i} {
+        padding: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .pt-#{$i} {
+        padding-top: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .pb-#{$i} {
+        padding-bottom: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .pr-#{$i} {
+        padding-right: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .pl-#{$i} {
+        padding-left: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .px-#{$i} {
+        padding-right: #{$i / 4}rem !important;
+        padding-left: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .py-#{$i} {
+        padding-top: #{$i / 4}rem !important;
+        padding-bottom: #{$i / 4}rem !important;
+    }
+}
+
+.m-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@for $i from 0 to 11 {
+    .m-#{$i} {
+        margin: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .mt-#{$i} {
+        margin-top: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .mb-#{$i} {
+        margin-bottom: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .mr-#{$i} {
+        margin-right: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .ml-#{$i} {
+        margin-left: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .mx-#{$i} {
+        margin-right: #{$i / 4}rem !important;
+        margin-left: #{$i / 4}rem !important;
+    }
+}
+@for $i from 0 to 11 {
+    .my-#{$i} {
+        margin-top: #{$i / 4}rem !important;
+        margin-bottom: #{$i / 4}rem !important;
+    }
+}
+
+// ********** Titulos **********
+.title {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+// ********** Alineacion y peso de fuente **********
+.text-left {
+    text-align: left !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.text-justify {
+    text-align: justify !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+.text-lowercase {
+    text-transform: lowercase !important;
+}
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+.text-extra-light {
+    font-weight: 200 !important;
+}
+.text-light {
+    font-weight: 300 !important;
+}
+.text-normal {
+    font-weight: 400 !important;
+}
+.text-bold {
+    font-weight: 700 !important;
+}
+.text-extra-bold {
+    font-weight: 800 !important;
+}
+.text-heavy {
+    font-weight: 900 !important;
+}
+
+.text-sm {
+    font-size: $font-size-sm !important;
+}
+.text-md {
+    font-size: $font-size-md !important;
+}
+.text-xl {
+    font-size: $font-size-xl !important;
+}
+.text-2xl {
+    font-size: $font-size-2xl !important;
+}
+.text-3xl {
+    font-size: $font-size-3xl !important;
+}
+
+// clases relacionadas con la paleta de colores
+// @each $key, $value in $main-colors {
+//     .text-#{$key} {
+//         color: $value !important;
+//     }
+// }
