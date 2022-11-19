@@ -4,8 +4,12 @@ import { FormRegisterClienteComponent } from "./components/form-register-cliente
 import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
-
+import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
 const routes: Routes = [
+    {
+        path:"asignar-revisiones",
+        component: AsignarRevisionesComponent,
+    },
     {
         path: "",
         component: HomeComponent,

@@ -1,0 +1,32 @@
+<div class="container" id="contenedor">
+    <nz-table #basicTable [nzData]="listOfData">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Hora de entrada</th>
+                <th>Fecha revision</th>
+                <th>Estado</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data" class="editable-row">
+                    <td>{{ data.placa }}</td>
+                    <td>{{ data.horaEntrada }}</td>
+                    <td>{{ data.fechaRevision }}</td>
+                    <td>{{data.estadoRevision}}</td>
+                
+                <td>
+                    <a (click)="aceptarRevision($event, data)">Aceptar//</a>
+                    <a (click)="rechazarRevision($event, data)">Rechazar</a>
+                    <a (click)="reagendarStart(data.placa)"> //Reagendar</a>
+                </td>
+                <ng-template #editTemplate>
+                    <td>
+                        <a (click)="reagendarSave(data.placa)" class="save"></a>
+                    </td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

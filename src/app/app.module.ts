@@ -17,11 +17,12 @@ import { HomeComponent } from "./components/home/home.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzTableModule } from "ng-zorro-antd/table";
+import { AsignarRevisionesComponent } from './asignar-revisiones/asignar-revisiones.component';
 
 registerLocaleData(es);
 
 @NgModule({
-    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent],
+    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent, AsignarRevisionesComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
