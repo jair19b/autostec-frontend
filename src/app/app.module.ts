@@ -17,20 +17,13 @@ import { HomeComponent } from "./components/home/home.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzTableModule } from "ng-zorro-antd/table";
-<<<<<<< HEAD
 import { FromRegisterRepuestoComponent } from './components/from-register-repuesto/from-register-repuesto.component';
 import { BusquedaRepuestosComponent } from './busqueda-repuestos/busqueda-repuestos.component';
-=======
->>>>>>> e195786e9a1aea5cd2b9c29d5f59881f0da4903e
 
 registerLocaleData(es);
 
 @NgModule({
-<<<<<<< HEAD
     declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent, FromRegisterRepuestoComponent, BusquedaRepuestosComponent],
-=======
-    declarations: [AppComponent, FormRegisterClienteComponent, FormRegisterVehiculoComponent, HomeComponent, BusquedaDetalladaComponent],
->>>>>>> e195786e9a1aea5cd2b9c29d5f59881f0da4903e
     imports: [
         BrowserModule,
         AppRoutingModule,

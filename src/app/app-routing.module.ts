@@ -4,11 +4,8 @@ import { FormRegisterClienteComponent } from "./components/form-register-cliente
 import { HomeComponent } from "./components/home/home.component";
 import { FormRegisterVehiculoComponent } from "./components/form-register-vehiculo/form-register-vehiculo.component";
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
-<<<<<<< HEAD
 import { FromRegisterRepuestoComponent } from "./components/from-register-repuesto/from-register-repuesto.component";
 import { BusquedaRepuestosComponent } from "./busqueda-repuestos/busqueda-repuestos.component";
-=======
->>>>>>> e195786e9a1aea5cd2b9c29d5f59881f0da4903e
 
 const routes: Routes = [
     {
@@ -29,7 +26,6 @@ const routes: Routes = [
         component: BusquedaDetalladaComponent
     },
     {
-<<<<<<< HEAD
       path: "registro-repuesto",
       component: FromRegisterRepuestoComponent
     },
@@ -38,8 +34,6 @@ const routes: Routes = [
       component: BusquedaRepuestosComponent
     },
     {
-=======
->>>>>>> e195786e9a1aea5cd2b9c29d5f59881f0da4903e
         path: "**",
         component: HomeComponent
     }
