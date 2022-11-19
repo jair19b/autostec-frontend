@@ -21,6 +21,8 @@ import { RevisionesCreateComponent } from "./components/revisiones-create/revisi
 import { NzModalModule } from "ng-zorro-antd/modal";
 import { NzCalendarModule } from "ng-zorro-antd/calendar";
 import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
+import { FromRegisterRepuestoComponent } from "./components/from-register-repuesto/from-register-repuesto.component";
+import { BusquedaRepuestosComponent } from "./busqueda-repuestos/busqueda-repuestos.component";
 
 registerLocaleData(es);
 
@@ -32,7 +34,9 @@ registerLocaleData(es);
         HomeComponent,
         BusquedaDetalladaComponent,
         AsignarRevisionesComponent,
-        RevisionesCreateComponent
+        RevisionesCreateComponent,
+        FromRegisterRepuestoComponent,
+        BusquedaRepuestosComponent
     ],
     imports: [
         BrowserModule,

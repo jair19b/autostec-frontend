@@ -6,6 +6,8 @@ import { FormRegisterVehiculoComponent } from "./components/form-register-vehicu
 import { BusquedaDetalladaComponent } from "./busqueda-detallada/busqueda-detallada.component";
 import { RevisionesCreateComponent } from "./components/revisiones-create/revisiones-create.component";
 import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
+import { FromRegisterRepuestoComponent } from "./components/from-register-repuesto/from-register-repuesto.component";
+import { BusquedaRepuestosComponent } from "./busqueda-repuestos/busqueda-repuestos.component";
 
 const routes: Routes = [
     {
@@ -40,6 +42,14 @@ const routes: Routes = [
     {
         path: "revisiones/crear",
         component: RevisionesCreateComponent
+    },
+    {
+        path: "registro-repuesto",
+        component: FromRegisterRepuestoComponent
+    },
+    {
+        path: "busquedaRepuesto",
+        component: BusquedaRepuestosComponent
     },
     {
         path: "**",

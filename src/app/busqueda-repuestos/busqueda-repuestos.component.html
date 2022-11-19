@@ -1,0 +1,37 @@
+<div class="container">
+  <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+      <form [formGroup]="busquedaGroupR">
+          <input type="text" nz-input placeholder="Digite su placa" formControlName="busqueda" />
+      </form>
+  </nz-input-group>
+  <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch (click)="busquedaRepuesto()">Buscar</button>
+  </ng-template>
+
+  <nz-table #nzTable [nzData]="listOfData" nzTableLayout="fixed">
+      <thead>
+          <tr>
+              <th nzWidth="60px"></th>
+              <th>Tipo</th>
+              <th>Referencia</th>
+              <th>Vehiculo</th>
+          </tr>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let data of nzTable.data">
+              <tr>
+                  <td [nzExpand]="expandSet.has(convertirNumeros(data.id))" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                  <td>{{ data.tipo }}</td>
+                  <td>{{ data.referencia }}</td>
+                  <td>{{ data.vehiculos.placa}}</td>
+              </tr>
+              <tr [nzExpand]="expandSet.has(convertirNumeros(data.id))">
+                  <p>
+                      <strong>cantidad: </strong>{{ data.cantidad }} <br>
+                  </p>
+
+              </tr>
+          </ng-container>
+      </tbody>
+  </nz-table>
+</div>

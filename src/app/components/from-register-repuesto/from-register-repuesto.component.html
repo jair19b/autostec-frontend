@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="title"><span class="bi bi bi-bag"></span> Registrar un repuesto</h1>
+  <div *ngIf="errorMessage.length > 0" class="text-danger my-4 text-center">{{ errorMessage }}</div>
+  <form [formGroup]="formRepuesto" class="form-content-group group--three">
+      <div class="form-group">
+          <label>Seleccione un vehiculo</label>
+          <select class="form-select" formControlName="vehiculosId">
+              <option value="" selected>Vehiculo</option>
+              <option *ngFor="let vehiculo of listvehiculos" value="{{ vehiculo.id }}">{{ vehiculo.placa }}</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="resTipo">tipo:</label>
+          <input type="text" class="form-control" id="resTipo" placeholder="Bujías" formControlName="tipo" />
+      </div>
+      <div class="form-group">
+          <label for="resReferencia">Referencia:</label>
+          <input type="text" class="form-control" id="resReferencia" placeholder="PLATINUM TT" formControlName="referencia" />
+      </div>
+      <div class="form-group">
+          <label for="resCantidad">cantidad:</label>
+          <input type="text" class="form-control" id="resCantidad" placeholder="Numero necesario" formControlName="cantidad" />
+      </div>
+
+      <div style="width: 100%">
+          <button class="btn btn-primary" (click)="registrarRepuesto()">
+              <span class="bi bi-pencil-fill"></span>
+              Registrar repuesto
+          </button>
+      </div>
+  </form>
+</div>
+
