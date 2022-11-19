@@ -8,6 +8,8 @@ import { RevisionesCreateComponent } from "./components/revisiones-create/revisi
 import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
 import { FromRegisterRepuestoComponent } from "./components/from-register-repuesto/from-register-repuesto.component";
 import { BusquedaRepuestosComponent } from "./busqueda-repuestos/busqueda-repuestos.component";
+import { MecanicosComponent } from "./components/mecanicos/mecanicos.component";
+import { BusquedaVAsignadosComponent } from "./busqueda-v-asignados/busqueda-v-asignados.component";
 
 const routes: Routes = [
     {
@@ -50,6 +52,14 @@ const routes: Routes = [
     {
         path: "busquedaRepuesto",
         component: BusquedaRepuestosComponent
+    },
+    {
+        path: "registrar-mecanico",
+        component: MecanicosComponent
+    },
+    {
+        path: "busqueda-v-asignado",
+        component: BusquedaVAsignadosComponent
     },
     {
         path: "**",

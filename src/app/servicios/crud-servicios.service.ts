@@ -32,17 +32,12 @@ export class CrudServiciosService {
             return this.http.get(url);
         }
     }
-    obetenerDatosFilter(url: string, filtro: any): Observable<any> {
-        const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
-        const opcionesHttp = { params: parametros };
-        return this.http.get(url, opcionesHttp);
-    }
 
-    modificarDatosFilter(url: string, data:any ,filtro: any): Observable<any> {
+    modificarDatosFilter(url: string, data: any, filtro: any): Observable<any> {
         const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
         const opcionesHttp = { params: parametros, headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
-        const convertirJson=JSON.stringify(data)
-        return this.http.patch(url,convertirJson, opcionesHttp);
+        const convertirJson = JSON.stringify(data);
+        return this.http.patch(url, convertirJson, opcionesHttp);
     }
 
     obetenerDatosFilter(url: string, filtro: any): Observable<any> {
@@ -50,12 +45,6 @@ export class CrudServiciosService {
         const opcionesHttp = { params: parametros };
         return this.http.get(url, opcionesHttp);
     }
-
-    obetenerDatosFilter(url: string, filtro: any): Observable<any> {
-      const parametros = new HttpParams().append("filter", JSON.stringify(filtro));
-      const opcionesHttp = { params: parametros };
-      return this.http.get(url, opcionesHttp);
-  }
 
     postDatos(url: string, datos: any): Observable<any> {
         const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
@@ -90,10 +79,5 @@ export class CrudServiciosService {
 
     eliminarDatos(url: string): Observable<any> {
         return this.http.delete(url);
-    }
-    posData(url: string, datos: any): Observable<any> {
-        const opcionesHttp = { headers: new HttpHeaders({ "Content-type": "application/json;charset=utf-8" }) };
-        const urlEdit = this.url + datos;
-        return this.http.post(urlEdit, datos, opcionesHttp);
     }
 }

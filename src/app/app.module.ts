@@ -23,6 +23,9 @@ import { NzCalendarModule } from "ng-zorro-antd/calendar";
 import { AsignarRevisionesComponent } from "./asignar-revisiones/asignar-revisiones.component";
 import { FromRegisterRepuestoComponent } from "./components/from-register-repuesto/from-register-repuesto.component";
 import { BusquedaRepuestosComponent } from "./busqueda-repuestos/busqueda-repuestos.component";
+import { MecanicosComponent } from "./components/mecanicos/mecanicos.component";
+import { NzSelectModule } from "ng-zorro-antd/select";
+import { BusquedaVAsignadosComponent } from "./busqueda-v-asignados/busqueda-v-asignados.component";
 
 registerLocaleData(es);
 
@@ -36,7 +39,9 @@ registerLocaleData(es);
         AsignarRevisionesComponent,
         RevisionesCreateComponent,
         FromRegisterRepuestoComponent,
-        BusquedaRepuestosComponent
+        BusquedaRepuestosComponent,
+        MecanicosComponent,
+        BusquedaVAsignadosComponent
     ],
     imports: [
         BrowserModule,
@@ -50,7 +55,8 @@ registerLocaleData(es);
         NzTableModule,
         NzFormModule,
         NzModalModule,
-        NzCalendarModule
+        NzCalendarModule,
+        NzSelectModule
     ],
     providers: [{ provide: NZ_I18N, useValue: es_ES }],
     bootstrap: [AppComponent]
